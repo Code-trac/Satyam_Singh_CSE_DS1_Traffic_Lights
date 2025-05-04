@@ -72,8 +72,3 @@ You should see the dashboard load, and the density/signal data will start updati
 1. Satyam Singh
 2. Komal Dahiya
 3. Sakshi Singh
-
-## 📄 License
-
-*(Optional: Specify your license, e.g., MIT License)*
-This project is licensed under the MIT License - see the LICENSE.md file for details (if you add one).
