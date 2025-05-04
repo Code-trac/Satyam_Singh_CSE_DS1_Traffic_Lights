@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Inline styles for dynamic background/border colors based on signal status */
+        .lane-card {
+            transition: all 0.3s ease-in-out; /* Smooth transition for color changes */
+        }
+        /* Classes to be added/removed by JavaScript */
+        .lane-green {
+            background-color: #10B981; /* Tailwind green-500 */
+            color: white;
+            border-color: #059669 !important; /* Tailwind green-600, !important to override default border*/
+        }
+        .lane-red {
+            background-color: #EF4444; /* Tailwind red-500 */
+            color: white;
+            border-color: #DC2626 !important; /* Tailwind red-600, !important to override default border */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">Live Traffic Status</h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+
+            <div id="lane-0" class="lane-card bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-400">
+                <h2 class="text-xl font-semibold mb-2 text-gray-700">Lane 1</h2>
+                <p class="text-lg text-gray-600">
+                    Density: <span id="density-0" class="font-bold text-2xl">--%</span>
+                </p>
+                <p class="text-sm text-gray-500 mt-3">
+                    Status: <span id="status-0" class="font-medium">--</span>
+                </p>
+                <p class="text-sm text-gray-500">
+                    Timer: <span id="timer-0" class="font-medium">--s</span>
+                </p>
+            </div>
+
+            <div id="lane-1" class="lane-card bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-400">
+                <h2 class="text-xl font-semibold mb-2 text-gray-700">Lane 2</h2>
+                <p class="text-lg text-gray-600">
+                    Density: <span id="density-1" class="font-bold text-2xl">--%</span>
+                </p>
+                <p class="text-sm text-gray-500 mt-3">
+                    Status: <span id="status-1" class="font-medium">--</span>
+                </p>
+                 <p class="text-sm text-gray-500">
+                    Timer: <span id="timer-1" class="font-medium">--s</span>
+                </p>
+            </div>
+
+            <div id="lane-2" class="lane-card bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-400">
+                <h2 class="text-xl font-semibold mb-2 text-gray-700">Lane 3</h2>
+                <p class="text-lg text-gray-600">
+                    Density: <span id="density-2" class="font-bold text-2xl">--%</span>
+                </p>
+                 <p class="text-sm text-gray-500 mt-3">
+                    Status: <span id="status-2" class="font-medium">--</span>
+                </p>
+                 <p class="text-sm text-gray-500">
+                    Timer: <span id="timer-2" class="font-medium">--s</span>
+                </p>
+            </div>
+
+            <div id="lane-3" class="lane-card bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-400">
+                <h2 class="text-xl font-semibold mb-2 text-gray-700">Lane 4</h2>
+                <p class="text-lg text-gray-600">
+                    Density: <span id="density-3" class="font-bold text-2xl">--%</span>
+                </p>
+                 <p class="text-sm text-gray-500 mt-3">
+                    Status: <span id="status-3" class="font-medium">--</span>
+                </p>
+                 <p class="text-sm text-gray-500">
+                    Timer: <span id="timer-3" class="font-medium">--s</span>
+                </p>
+            </div>
+
+        </div> <div class="text-center text-gray-500 text-sm">
+            Data updating automatically... Last update: <span id="last-update">--</span>
+        </div>
+
+    </div> <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
